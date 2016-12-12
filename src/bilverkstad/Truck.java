@@ -2,17 +2,20 @@ package bilverkstad;
 
 /**
  * Represenation of a truck object
+ *
  * @author Tomas Perers
  * @version 2016-12-09
  */
-public class Truck extends Vehicle{
+public class Truck extends Vehicle
+{
     private int tires;
     private int doors;
     private String liftType;
     private double height;
-    
+
     /**
      * Create a truck object
+     *
      * @param regNumber String regnumber
      * @param brand String brand name
      * @param modelYear String for model year
@@ -30,31 +33,41 @@ public class Truck extends Vehicle{
 
     /**
      * get number of tires on the truck
+     *
      * @return int with number of tires
      */
-    public int getTires() {
+    public int getTires()
+    {
         return tires;
     }
+
     /**
      * Returns the number of doors on the truck
+     *
      * @return int with number of doors
      */
-    public int getDoors() {
+    public int getDoors()
+    {
         return doors;
     }
+
     /**
      * Returns the lift type needed for the vehicle
+     *
      * @return String lift type.
      */
-    public String getLiftType() {
+    public String getLiftType()
+    {
         return liftType;
     }
-    
+
     /**
      * Returns the height of the vehicle
+     *
      * @return double height
      */
-    public double getHeight() {
+    public double getHeight()
+    {
         return height;
     }
 }
