@@ -14,7 +14,7 @@ public class Car extends Vehicle
     private double height;
 
     /**
-     * Creats a car object.
+     * Creates a car object.
      *
      * @param regNumber
      * @param brand
@@ -22,7 +22,7 @@ public class Car extends Vehicle
      * @param modelYear
      * @param type
      */
-    public Car(String regNumber, String brand, Owner owner, String modelYear, String type)
+    public Car(String regNumber, String brand, String owner, String modelYear, String type)
     {
         super(regNumber, brand, owner, modelYear, type);
         this.tires = 4;
@@ -34,7 +34,7 @@ public class Car extends Vehicle
     /**
      * Returns the number of tires on the car.
      *
-     * @return int ammount of tires
+     * @return int amount of tires
      */
     public int getTires()
     {
@@ -44,7 +44,7 @@ public class Car extends Vehicle
     /**
      * Returns the number of doors on the car
      *
-     * @return int doors
+     * @return int containing the amount of doors on the vehicle 
      */
     public int getDoors()
     {
@@ -54,7 +54,7 @@ public class Car extends Vehicle
     /**
      * Returns the lift type needed for a car
      *
-     * @return String liftType
+     * @return String liftType used for lifting the vehicle
      */
     public String getLiftType()
     {
@@ -64,7 +64,7 @@ public class Car extends Vehicle
     /**
      * Returns the height of the car
      *
-     * @return int height
+     * @return int height of the car
      */
     public double getHeight()
     {

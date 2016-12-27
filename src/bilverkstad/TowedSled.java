@@ -1,7 +1,7 @@
 package bilverkstad;
 
 /**
- * Representation of a towedsled vehicle.
+ * Representation of a towed sled vehicle.
  *
  * @author Tomas Perers
  * @version 2016-12-11
@@ -11,7 +11,7 @@ public class TowedSled extends Trailers
     private int numberOfSkids;
 
     /**
-     * Constructur of the object, creates a towedslef object.
+     * constructor of the object, creates a towed sled object.
      *
      * @param regNumber String
      * @param brand String
@@ -19,16 +19,16 @@ public class TowedSled extends Trailers
      * @param modelYear String
      * @param type String type of vehicle
      */
-    public TowedSled(String regNumber, String brand, Owner owner, String modelYear, String type)
+    public TowedSled(String regNumber, String brand, String owner, String modelYear, String type)
     {
         super(regNumber, brand, owner, modelYear, type);
         this.numberOfSkids = 2;
     }
 
     /**
-     * Returns the ammount of skids on the towedsled.
+     * Returns the amount of skids on the towed sled.
      *
-     * @return int with ammount of skids
+     * @return int with amount of skids
      */
     public int getNumberOfSkids()
     {

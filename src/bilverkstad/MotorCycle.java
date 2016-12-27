@@ -20,7 +20,7 @@ public class MotorCycle extends Vehicle
      * @param modelYear
      * @param type
      */
-    public MotorCycle(String regNumber, String brand, Owner owner, String modelYear, String type)
+    public MotorCycle(String regNumber, String brand, String owner, String modelYear, String type)
     {
         super(regNumber, brand, owner, modelYear, type);
         this.tires = 2;
@@ -28,9 +28,9 @@ public class MotorCycle extends Vehicle
     }
 
     /**
-     * Returns the ammount of tires.
+     * Returns the amount of tires.
      *
-     * @return int ammount of tires
+     * @return int amount of tires
      */
     public int getTires()
     {
@@ -38,9 +38,9 @@ public class MotorCycle extends Vehicle
     }
 
     /**
-     * Returns the lift needed for a motorcyle
+     * Returns the lift needed for a motorcycle
      *
-     * @return String
+     * @return String with lift type needed
      */
     public String getLiftType()
     {

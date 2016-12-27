@@ -11,7 +11,7 @@ public class Trailer extends Trailers
     private int tires;
 
     /**
-     * Constructur for the trailer object
+     * constructor for the trailer object
      *
      * @param regNumber String registration number
      * @param brand string brand name
@@ -19,7 +19,7 @@ public class Trailer extends Trailers
      * @param modelYear String model year
      * @param type String type of vehicle
      */
-    public Trailer(String regNumber, String brand, Owner owner, String modelYear, String type)
+    public Trailer(String regNumber, String brand, String owner, String modelYear, String type)
     {
         super(regNumber, brand, owner, modelYear, type);
         this.tires = 2;
@@ -28,7 +28,7 @@ public class Trailer extends Trailers
     /**
      * Returns the number of tires on the trailer
      *
-     * @return int ammount of tires.
+     * @return int amount of tires.
      */
     public int getTires()
     {

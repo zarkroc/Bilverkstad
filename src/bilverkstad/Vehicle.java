@@ -11,23 +11,22 @@ import java.util.Date;
  */
 public class Vehicle
 {
-    private String regNumber, brand, serviceLevel, modelYear, type;
-    private Owner owner;
+    private String regNumber, brand, serviceLevel, modelYear, type, owner;
     private int repairTime, milage;
     private String formattedDate;
     private static final int MAX_MILAGE = 40000;
     private static final int MIN_MILAGE = 1500;
 
     /**
-     * Constructur for the class
+     * Constructor for the class
      *
      * @param regNumber string with registration number
      * @param brand string with brand name
-     * @param owner Owner object holding name
+     * @param owner String holding name
      * @param modelYear String with model year of vehicle
      * @param type String with type of vehicle.
      */
-    public Vehicle(String regNumber, String brand, Owner owner, String modelYear, String type)
+    public Vehicle(String regNumber, String brand, String owner, String modelYear, String type)
     {
         this.regNumber = regNumber.toUpperCase();
         this.brand = brand;
@@ -62,7 +61,7 @@ public class Vehicle
     /**
      * Returns the registration number of the vehicle
      *
-     * @return String with registrationnumber
+     * @return String with registration number
      */
     public String getRegNumber()
     {
@@ -110,7 +109,7 @@ public class Vehicle
      *
      * @return Owner object
      */
-    public Owner getOwner()
+    public String getOwner()
     {
         return owner;
     }

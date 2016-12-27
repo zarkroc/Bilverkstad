@@ -19,7 +19,7 @@ public class Trailers extends Vehicle
      * @param modelYear
      * @param type
      */
-    public Trailers(String regNumber, String brand, Owner owner, String modelYear, String type)
+    public Trailers(String regNumber, String brand, String owner, String modelYear, String type)
     {
         super(regNumber, brand, owner, modelYear, type);
         this.liftType = "No lift";

@@ -4,7 +4,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
- * Program to register vehicles for repairs in a garageshop program also lists
+ * Program to register vehicles for repairs in a garage shop program also lists
  * and search for vehicles
  *
  * @author Tomas Perers
@@ -25,7 +25,7 @@ public class Gui
 
         while (true)
         {
-            garage.registerVehicle();
+            registerVehicle(garage);
             int reply = JOptionPane.showConfirmDialog(null, "Register another vehicle?",
                     "Register vehicle", JOptionPane.YES_NO_OPTION);
             if (reply == JOptionPane.NO_OPTION)
@@ -33,20 +33,16 @@ public class Gui
                 break;
             }
         }
-        List<Vehicle> repairObjects = garage.getRepairObjects();
-        System.out.println("Vehicles registered in the garage");
-        for (int i = 0; i < repairObjects.size(); i++)
-        {
-            printRepairObjects(repairObjects.get(i));
-        }
 
+        printRegisteredVehicles(garage);
+        
         while (true)
         {
             String regNumber = JOptionPane.showInputDialog("Input registration number to earch for");
             Vehicle vehicle = garage.searchVehicle(regNumber.toUpperCase());
             if (vehicle != null)
             {
-                printRepairObjects(vehicle);
+                printFormatting(vehicle);
             }
             else
             {
@@ -60,17 +56,18 @@ public class Gui
                 break;
             }
         }
-
-        List<Owner> ownerList = garage.getOwnerList();
-        System.out.println("\nOwners registered in the garage");
-        for (int i = 0; i < ownerList.size(); i++)
+     }
+    /**
+     * Prints all vehicles registered for repairs by calling a formatting method.
+     * @param garage GarageShop object where vehicles are registered.
+     */
+    private static void printRegisteredVehicles(GarageShop garage)
+    {
+        List<Vehicle> repairObjects = garage.getRepairObjects();
+        System.out.println("Vehicles registered in the garage");
+        for (int i = 0; i < repairObjects.size(); i++)
         {
-            System.out.println(ownerList.get(i).getName());
-            System.out.println("Owns the current cars:");
-            for (int j = 0; j < ownerList.get(i).getVehicle().size(); j++)
-            {
-                System.out.println(ownerList.get(i).getVehicle().get(j).getRegNumber());
-            }
+            printFormatting(repairObjects.get(i));
         }
     }
 
@@ -79,15 +76,64 @@ public class Gui
      *
      * @param vehicle to print.
      */
-    private static void printRepairObjects(Vehicle vehicle)
+    private static void printFormatting(Vehicle vehicle)
     {
         System.out.println("--------------------------");
         System.out.println(vehicle.getType() + ": " + vehicle.getBrand() + " " + vehicle.getRegNumber());
         System.out.println("Year model: " + vehicle.getModelYear());
-        System.out.println("Owner: " + vehicle.getOwner().getName());
+        System.out.println("Owner: " + vehicle.getOwner());
         System.out.println("Milage: " + vehicle.getMilage() + " miles");
         System.out.println("Handed in: " + vehicle.getFormattedDate());
         System.out.println("Repair time: " + vehicle.getRepairTime() + " days");
         System.out.println(vehicle.getServiceLevel() + " is recommeded");
+    }
+    
+    /**
+     * Register a new Vehicle for repair actions.
+     */
+    private static void registerVehicle(GarageShop garage)
+    {
+        String mType = (String) JOptionPane.showInputDialog(null, "Vehicle type",
+                "Choose the type of vehicle", JOptionPane.QUESTION_MESSAGE, null, new String[]
+                {
+                    "Car",
+                    "MotorCycle",
+                    "Truck",
+                    "Trailer",
+                    "Towedsled"
+                }, "Car");
+        String mRegNumber = JOptionPane.showInputDialog("Input registration number");
+        String mModelYear = JOptionPane.showInputDialog("Input model year");
+        // If the input is not a number ask the user for a new input.
+        while (true)
+        {
+            if (mModelYear.matches("[0-9]+"))
+            {
+                break;
+            }
+            mModelYear = JOptionPane.showInputDialog("Input model year \nUse only numbers");
+        }
+        String mBrand = JOptionPane.showInputDialog("Input brand name");
+        String mOwner = JOptionPane.showInputDialog("Input owner (Name Sirname)");
+        Vehicle mVehicle = null;
+        switch (mType)
+        {
+            case "Car":
+                mVehicle = new Car(mRegNumber, mBrand, mOwner, mModelYear, mType);
+                break;
+            case "MotorCycle":
+                mVehicle = new MotorCycle(mRegNumber, mBrand, mOwner, mModelYear, mType);
+                break;
+            case "Truck":
+                mVehicle = new Truck(mRegNumber, mBrand, mOwner, mModelYear, mType);
+                break;
+            case "Trailer":
+                mVehicle = new Trailer(mRegNumber, mBrand, mOwner, mModelYear, mType);
+                break;
+            case "Towedsled":
+                mVehicle = new TowedSled(mRegNumber, mBrand, mOwner, mModelYear, mType);
+                break;
+        }
+        garage.addVehicle(mVehicle);
     }
 }

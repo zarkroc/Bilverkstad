@@ -22,7 +22,7 @@ public class Truck extends Vehicle
      * @param owner Owner object
      * @param type String type of vehicle.
      */
-    public Truck(String regNumber, String brand, Owner owner, String modelYear, String type)
+    public Truck(String regNumber, String brand, String owner, String modelYear, String type)
     {
         super(regNumber, brand, owner, modelYear, type);
         this.tires = 6;
