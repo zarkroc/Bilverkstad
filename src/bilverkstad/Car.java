@@ -21,10 +21,11 @@ public class Car extends Vehicle
      * @param owner String with name of owner
      * @param modelYear String with year of the model
      * @param type String with type of car
+     * @param milage Integer with milage of vehicle
      */
-    public Car(String regNumber, String brand, String owner, String modelYear, String type)
+    public Car(String regNumber, String brand, String owner, String modelYear, String type, int milage)
     {
-        super(regNumber, brand, owner, modelYear, type);
+        super(regNumber, brand, owner, modelYear, type, milage);
         this.tires = 4;
         this.doors = 4;
         this.liftType = "Light lift";

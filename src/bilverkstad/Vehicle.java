@@ -28,14 +28,15 @@ public class Vehicle implements Serializable
      * @param owner String holding name
      * @param modelYear String with model year of vehicle
      * @param type String with type of vehicle.
+     * @param milage Integer with milage of vehicle.
      */
-    public Vehicle(String regNumber, String brand, String owner, String modelYear, String type)
+    public Vehicle(String regNumber, String brand, String owner, String modelYear, String type, int milage)
     {
         this.regNumber = regNumber.toUpperCase();
         this.brand = brand;
         this.owner = owner;
         this.modelYear = modelYear;
-        this.milage = MIN_MILAGE + (int) (Math.random() * ((MAX_MILAGE - MIN_MILAGE) + 1));
+        this.milage = milage;
         this.repairTime = milage / 1500;
         this.formattedDate = new SimpleDateFormat("EEE LLL dd").format(new Date());
         this.type = type;

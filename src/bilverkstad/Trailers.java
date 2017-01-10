@@ -4,7 +4,7 @@ package bilverkstad;
  * Representation of all trailers
  *
  * @author Tomas Perers
- * @version 2016-12-09
+ * @version 2016-12-29
  */
 public class Trailers extends Vehicle
 {
@@ -18,10 +18,12 @@ public class Trailers extends Vehicle
      * @param owner Owner object
      * @param modelYear String model year
      * @param type String type of vehicle
+     * @param milage Integer with milage of vehicle
+     * @param milage Integer with milage of vehicle
      */
-    public Trailers(String regNumber, String brand, String owner, String modelYear, String type)
+    public Trailers(String regNumber, String brand, String owner, String modelYear, String type,int milage)
     {
-        super(regNumber, brand, owner, modelYear, type);
+        super(regNumber, brand, owner, modelYear, type, milage);
         this.liftType = "No lift";
     }
 

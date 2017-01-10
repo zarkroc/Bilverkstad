@@ -325,23 +325,25 @@ public class GarageShopGui extends javax.swing.JFrame
             }
             String mBrand = JOptionPane.showInputDialog("Input brand name");
             String mOwner = JOptionPane.showInputDialog("Input owner (Name Sirname)");
+            int mMilage;
+            mMilage = Integer.parseInt(JOptionPane.showInputDialog("Input milage of vehicle"));
             Vehicle mVehicle = null;
             switch (mType)
             {
                 case "Car":
-                    mVehicle = new Car(mRegNumber, mBrand, mOwner, mModelYear, mType);
+                    mVehicle = new Car(mRegNumber, mBrand, mOwner, mModelYear, mType, mMilage);
                     break;
                 case "MotorCycle":
-                    mVehicle = new MotorCycle(mRegNumber, mBrand, mOwner, mModelYear, mType);
+                    mVehicle = new MotorCycle(mRegNumber, mBrand, mOwner, mModelYear, mType, mMilage);
                     break;
                 case "Truck":
-                    mVehicle = new Truck(mRegNumber, mBrand, mOwner, mModelYear, mType);
+                    mVehicle = new Truck(mRegNumber, mBrand, mOwner, mModelYear, mType, mMilage);
                     break;
                 case "Trailer":
-                    mVehicle = new Trailer(mRegNumber, mBrand, mOwner, mModelYear, mType);
+                    mVehicle = new Trailer(mRegNumber, mBrand, mOwner, mModelYear, mType, mMilage);
                     break;
                 case "Towedsled":
-                    mVehicle = new TowedSled(mRegNumber, mBrand, mOwner, mModelYear, mType);
+                    mVehicle = new TowedSled(mRegNumber, mBrand, mOwner, mModelYear, mType, mMilage);
                     break;
             }
                 garage.addVehicle(mVehicle);

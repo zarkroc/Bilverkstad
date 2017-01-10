@@ -4,7 +4,7 @@ package bilverkstad;
  * Representation of a truck object
  *
  * @author Tomas Perers
- * @version 2016-12-09
+ * @version 2016-12-29
  */
 public class Truck extends Vehicle
 {
@@ -21,10 +21,11 @@ public class Truck extends Vehicle
      * @param modelYear String for model year
      * @param owner Owner object
      * @param type String type of vehicle.
+     * @param milage Integer with milage of vehicle
      */
-    public Truck(String regNumber, String brand, String owner, String modelYear, String type)
+    public Truck(String regNumber, String brand, String owner, String modelYear, String type, int milage)
     {
-        super(regNumber, brand, owner, modelYear, type);
+        super(regNumber, brand, owner, modelYear, type, milage);
         this.tires = 6;
         this.doors = 2;
         this.liftType = "Heavy lift";
