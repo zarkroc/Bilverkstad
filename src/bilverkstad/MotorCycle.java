@@ -14,11 +14,11 @@ public class MotorCycle extends Vehicle
     /**
      * Creates a motorcycle object.
      *
-     * @param regNumber
-     * @param brand
-     * @param owner
-     * @param modelYear
-     * @param type
+     * @param regNumber String registration number
+     * @param brand string brand name
+     * @param owner Owner object
+     * @param modelYear String model year
+     * @param type String type of vehicle
      */
     public MotorCycle(String regNumber, String brand, String owner, String modelYear, String type)
     {

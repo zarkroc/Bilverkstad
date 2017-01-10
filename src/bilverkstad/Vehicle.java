@@ -1,5 +1,6 @@
 package bilverkstad;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -8,11 +9,13 @@ import java.util.Date;
  *
  * @author Tomas Perers
  * @version 1, 2016-12-07
+ * @version 2 2016-12-29
  */
-public class Vehicle
+public class Vehicle implements Serializable
 {
     private String regNumber, brand, serviceLevel, modelYear, type, owner;
     private int repairTime, milage;
+    private long cost;
     private String formattedDate;
     private static final int MAX_MILAGE = 40000;
     private static final int MIN_MILAGE = 1500;
@@ -36,16 +39,32 @@ public class Vehicle
         this.repairTime = milage / 1500;
         this.formattedDate = new SimpleDateFormat("EEE LLL dd").format(new Date());
         this.type = type;
+        this.cost = 0;
     }
 
     /**
      * Returns the milage of the vehicle
      *
-     * @return int milage
+     * @return long milage
      */
     public int getMilage()
     {
         return milage;
+    }
+    /**
+     * Returns the cost of all the repairs.
+     * @return long with sum of repair cost
+     */
+    public long getCost() {
+        return this.cost;
+    }
+    /**
+     * Sets the repair cost
+     * @param cost long with cost of repairs.
+     */
+    public void addCost(long cost) {
+        this.cost += cost;
+        System.out.println("Cost to add: " +cost);
     }
 
     /**

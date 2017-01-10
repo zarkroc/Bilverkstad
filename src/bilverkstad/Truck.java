@@ -1,7 +1,7 @@
 package bilverkstad;
 
 /**
- * Represenation of a truck object
+ * Representation of a truck object
  *
  * @author Tomas Perers
  * @version 2016-12-09
@@ -16,7 +16,7 @@ public class Truck extends Vehicle
     /**
      * Create a truck object
      *
-     * @param regNumber String regnumber
+     * @param regNumber String registration number
      * @param brand String brand name
      * @param modelYear String for model year
      * @param owner Owner object

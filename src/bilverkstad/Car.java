@@ -4,7 +4,7 @@ package bilverkstad;
  * A representation of a car object
  *
  * @author Tomas Perers
- * @version 2016-12-10
+ * @version 2017-01-10
  */
 public class Car extends Vehicle
 {
@@ -16,11 +16,11 @@ public class Car extends Vehicle
     /**
      * Creates a car object.
      *
-     * @param regNumber
-     * @param brand
-     * @param owner
-     * @param modelYear
-     * @param type
+     * @param regNumber String with registration number of Car
+     * @param brand String with brand name of Car
+     * @param owner String with name of owner
+     * @param modelYear String with year of the model
+     * @param type String with type of car
      */
     public Car(String regNumber, String brand, String owner, String modelYear, String type)
     {
