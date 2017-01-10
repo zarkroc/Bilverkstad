@@ -8,6 +8,7 @@ package bilverkstad;
  */
 public class Car extends Vehicle
 {
+
     private int tires;
     private int doors;
     private String liftType;
@@ -45,7 +46,7 @@ public class Car extends Vehicle
     /**
      * Returns the number of doors on the car
      *
-     * @return int containing the amount of doors on the vehicle 
+     * @return int containing the amount of doors on the vehicle
      */
     public int getDoors()
     {

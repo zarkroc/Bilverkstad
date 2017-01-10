@@ -8,6 +8,7 @@ package bilverkstad;
  */
 public class TowedSled extends Trailers
 {
+
     private int numberOfSkids;
 
     /**

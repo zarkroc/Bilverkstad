@@ -14,13 +14,15 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- * Garage shop GUI for adding vehicles to a garage
- * and updating work done and checking out vehicles.
+ * Garage shop GUI for adding vehicles to a garage and updating work done and
+ * checking out vehicles.
+ *
  * @author Tomas Perers
  * @version 2017-01-10
  */
 public class GarageShopGui extends javax.swing.JFrame
 {
+
     GarageShop garage = new GarageShop();
 
     /**
@@ -30,9 +32,13 @@ public class GarageShopGui extends javax.swing.JFrame
     {
         initComponents();
         if (garage.getReadyObjects() != null)
-            updateTextArea(taVehiclesReady,garage.getReadyObjects());
+        {
+            updateTextArea(taVehiclesReady, garage.getReadyObjects());
+        }
         if (garage.getRepairObjects() != null)
-            updateTextArea(taVehiclesToFix,garage.getRepairObjects());
+        {
+            updateTextArea(taVehiclesToFix, garage.getRepairObjects());
+        }
     }
 
     /**
@@ -158,50 +164,63 @@ public class GarageShopGui extends javax.swing.JFrame
 
     /**
      * Adds a Vehicle when button is pushed.
+     *
      * @param evt ActionEvent
      */
     private void btnAddVehicleActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAddVehicleActionPerformed
     {//GEN-HEADEREND:event_btnAddVehicleActionPerformed
-        try {
+        try
+        {
             registerVehicle(garage);
-        } catch (IOException ex) {
+        }
+        catch (IOException ex)
+        {
             Logger.getLogger(GarageShopGui.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAddVehicleActionPerformed
 
     /**
      * Adds work to a Vehicle object when button is pushed.
+     *
      * @param evt ActionEvent
      */
     private void btnAddWorkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddWorkActionPerformed
         String mRegNumber = JOptionPane.showInputDialog("Input registration number");
         Vehicle mVehicle = garage.searchRepair(mRegNumber.toUpperCase());
         if (mVehicle != null)
+        {
             workDone(mVehicle);
+        }
         else
-            JOptionPane.showMessageDialog(this,"Car Was not found");
+        {
+            JOptionPane.showMessageDialog(this, "Car Was not found");
+        }
     }//GEN-LAST:event_btnAddWorkActionPerformed
 
     /**
      * Moves a vehicle from repairing to ready when button is pushed
+     *
      * @param evt ActionEvent
      */
     private void btnAddVehicleAsReadyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVehicleAsReadyActionPerformed
         String mRegNumber = JOptionPane.showInputDialog("Input registration number for pickup");
         Vehicle mVehicle = garage.searchRepair(mRegNumber.toUpperCase());
-        if ( mVehicle != null)
+        if (mVehicle != null)
         {
             garage.repair(mVehicle);
-            JOptionPane.showMessageDialog(this,"Car " +mVehicle.getRegNumber() +" is ready");
+            JOptionPane.showMessageDialog(this, "Car " + mVehicle.getRegNumber() + " is ready");
         }
         else
-            JOptionPane.showMessageDialog(this,"Car Was not found");
-        updateTextArea(taVehiclesReady,garage.getReadyObjects());
-        updateTextArea(taVehiclesToFix,garage.getRepairObjects());
+        {
+            JOptionPane.showMessageDialog(this, "Car Was not found");
+        }
+        updateTextArea(taVehiclesReady, garage.getReadyObjects());
+        updateTextArea(taVehiclesToFix, garage.getRepairObjects());
     }//GEN-LAST:event_btnAddVehicleAsReadyActionPerformed
-    
+
     /**
      * Prints information about a vehicle when button is pushed.
+     *
      * @param evt ActionEvent
      */
     private void btnInfoVehicleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoVehicleActionPerformed
@@ -214,27 +233,30 @@ public class GarageShopGui extends javax.swing.JFrame
         }
         else
         {
-            JOptionPane.showMessageDialog(this,"Car Was not found");
+            JOptionPane.showMessageDialog(this, "Car Was not found");
         }
     }//GEN-LAST:event_btnInfoVehicleActionPerformed
     /**
      * Checks out a vehicle when the Checkout button is pushed.
+     *
      * @param evt ActionEvent
      */
     private void btnCheckoutVehicleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutVehicleActionPerformed
         String mRegNumber = JOptionPane.showInputDialog("Input registration number for pickup");
         Vehicle mVehicle = garage.searchReady(mRegNumber.toUpperCase());
-        if ( mVehicle != null)
+        if (mVehicle != null)
         {
             garage.checkOut(mVehicle);
-            JOptionPane.showMessageDialog(this, "The vehicle " 
-                    +mVehicle.getRegNumber() +" has been checkout but the customer \n "
-                            + "Total price: " +mVehicle.getCost() );
+            JOptionPane.showMessageDialog(this, "The vehicle "
+                    + mVehicle.getRegNumber() + " has been checkout but the customer \n "
+                    + "Total price: " + mVehicle.getCost());
         }
         else
-            JOptionPane.showMessageDialog(this,"Car Was not found");
-        
-        updateTextArea(taVehiclesReady,garage.getReadyObjects());
+        {
+            JOptionPane.showMessageDialog(this, "Car Was not found");
+        }
+
+        updateTextArea(taVehiclesReady, garage.getReadyObjects());
     }//GEN-LAST:event_btnCheckoutVehicleActionPerformed
 
     /**
@@ -242,7 +264,7 @@ public class GarageShopGui extends javax.swing.JFrame
      */
     public static void main(String args[])
     {
-        
+
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -289,12 +311,13 @@ public class GarageShopGui extends javax.swing.JFrame
             }
         });
     }
-    
+
     /**
-     * Register a vehicle for repairs by calling the garage.addVehicle
-     * and updateTextArea methods
+     * Register a vehicle for repairs by calling the garage.addVehicle and
+     * updateTextArea methods
+     *
      * @param garage object where information is stored.
-     * @throws IOException 
+     * @throws IOException
      */
     private void registerVehicle(GarageShop garage) throws IOException
     {
@@ -309,8 +332,10 @@ public class GarageShopGui extends javax.swing.JFrame
                 }, "Car");
         String mRegNumber = JOptionPane.showInputDialog("Input registration number");
         Vehicle tempVehicle = garage.searchVehicle(mRegNumber.toUpperCase());
-        if ( tempVehicle != null)
-            JOptionPane.showMessageDialog(this,"Car already registered!");
+        if (tempVehicle != null)
+        {
+            JOptionPane.showMessageDialog(this, "Car already registered!");
+        }
         else
         {
             String mModelYear = JOptionPane.showInputDialog("Input model year");
@@ -346,9 +371,9 @@ public class GarageShopGui extends javax.swing.JFrame
                     mVehicle = new TowedSled(mRegNumber, mBrand, mOwner, mModelYear, mType, mMilage);
                     break;
             }
-                garage.addVehicle(mVehicle);
-                updateTextArea(taVehiclesToFix,garage.getRepairObjects());
-                JOptionPane.showMessageDialog(this,"Car " +mVehicle.getRegNumber() +" has been registered");
+            garage.addVehicle(mVehicle);
+            updateTextArea(taVehiclesToFix, garage.getRepairObjects());
+            JOptionPane.showMessageDialog(this, "Car " + mVehicle.getRegNumber() + " has been registered");
         }
         String message = "Continue to register Vehicles?";
         String title = "Continue registration?";
@@ -356,12 +381,13 @@ public class GarageShopGui extends javax.swing.JFrame
         if (reply == JOptionPane.YES_OPTION)
         {
             registerVehicle(garage);
-        }        
+        }
     }
-    
+
     /**
      * Gives the user an option to choose what work should be added to object
      * Calls method garage.addCost
+     *
      * @param mVehicle Vehicle object
      */
     private void workDone(Vehicle mVehicle)
@@ -376,7 +402,7 @@ public class GarageShopGui extends javax.swing.JFrame
                     "Change Tires",
                 }, "Budget Service");
         garage.addCost(mVehicle, mType);
-        JOptionPane.showMessageDialog(this,"Work " +mType +" has been added to the vehicle " +mVehicle.getRegNumber());
+        JOptionPane.showMessageDialog(this, "Work " + mType + " has been added to the vehicle " + mVehicle.getRegNumber());
         String message = "Continue to register work?";
         String title = "Continue registration?";
         int reply = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
@@ -385,9 +411,10 @@ public class GarageShopGui extends javax.swing.JFrame
             workDone(mVehicle);
         }
     }
-    
+
     /**
      * Formatting of output
+     *
      * @param vehicle Object to gather information from
      * @return String outputMessage
      */
@@ -403,9 +430,10 @@ public class GarageShopGui extends javax.swing.JFrame
                 .concat("Total cost: ").concat(Long.toString(vehicle.getCost())).concat(" kr");
         return outputMessage;
     }
-    
+
     /**
      * Updates the text area with new information.
+     *
      * @param ta TextArea object to update on.
      * @param vehicleList List to gather information from
      */
@@ -414,7 +442,8 @@ public class GarageShopGui extends javax.swing.JFrame
         ta.setText("");
         Iterator<Vehicle> vehiclesIterator = vehicleList.iterator();
         String message = "";
-        while (vehiclesIterator.hasNext()) {
+        while (vehiclesIterator.hasNext())
+        {
             Vehicle mVehicle = vehiclesIterator.next();
             message = message.concat(mVehicle.getRegNumber().concat(" ").concat(mVehicle.getType())).concat("\n");
         }

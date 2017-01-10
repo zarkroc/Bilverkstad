@@ -8,6 +8,7 @@ package bilverkstad;
  */
 public class Trailers extends Vehicle
 {
+
     private String liftType;
 
     /**
@@ -21,7 +22,7 @@ public class Trailers extends Vehicle
      * @param milage Integer with milage of vehicle
      * @param milage Integer with milage of vehicle
      */
-    public Trailers(String regNumber, String brand, String owner, String modelYear, String type,int milage)
+    public Trailers(String regNumber, String brand, String owner, String modelYear, String type, int milage)
     {
         super(regNumber, brand, owner, modelYear, type, milage);
         this.liftType = "No lift";

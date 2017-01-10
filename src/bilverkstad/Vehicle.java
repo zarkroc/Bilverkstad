@@ -13,12 +13,11 @@ import java.util.Date;
  */
 public class Vehicle implements Serializable
 {
+
     private String regNumber, brand, serviceLevel, modelYear, type, owner;
     private int repairTime, milage;
     private long cost;
     private String formattedDate;
-    private static final int MAX_MILAGE = 40000;
-    private static final int MIN_MILAGE = 1500;
 
     /**
      * Constructor for the class
@@ -52,20 +51,25 @@ public class Vehicle implements Serializable
     {
         return milage;
     }
+
     /**
      * Returns the cost of all the repairs.
+     *
      * @return long with sum of repair cost
      */
-    public long getCost() {
+    public long getCost()
+    {
         return this.cost;
     }
+
     /**
      * Sets the repair cost
+     *
      * @param cost long with cost of repairs.
      */
-    public void addCost(long cost) {
+    public void addCost(long cost)
+    {
         this.cost += cost;
-        System.out.println("Cost to add: " +cost);
     }
 
     /**
@@ -107,19 +111,19 @@ public class Vehicle implements Serializable
     {
         if (milage > 20000 && milage <= 40000)
         {
-            serviceLevel = "En Stor service";
+            serviceLevel = "A big service";
         }
         else if (milage > 8000 && milage <= 20000)
         {
-            serviceLevel = "En Medium service";
+            serviceLevel = "A medium service";
         }
         else if (milage >= 500 && milage <= 8000)
         {
-            serviceLevel = "En Liten service";
+            serviceLevel = "A small service";
         }
         else
         {
-            serviceLevel = "Ingen service";
+            serviceLevel = "No service";
         }
         return serviceLevel;
     }

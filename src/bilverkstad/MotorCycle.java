@@ -8,6 +8,7 @@ package bilverkstad;
  */
 public class MotorCycle extends Vehicle
 {
+
     private int tires;
     private String liftType;
 

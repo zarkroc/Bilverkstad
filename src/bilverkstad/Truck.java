@@ -8,6 +8,7 @@ package bilverkstad;
  */
 public class Truck extends Vehicle
 {
+
     private int tires;
     private int doors;
     private String liftType;

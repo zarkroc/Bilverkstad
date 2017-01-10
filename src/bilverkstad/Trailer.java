@@ -8,6 +8,7 @@ package bilverkstad;
  */
 public class Trailer extends Trailers
 {
+
     private int tires;
 
     /**
